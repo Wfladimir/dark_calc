@@ -16,11 +16,11 @@ jobs:
         with:
           targets: aarch64-linux-android
 
-      - name: Set up Android NDK
-        uses: android-actions/setup-ndk@v1
-        with:
-          ndk_version: r26b
-          cmake_version: '3.22.1'
+      - name: Install Android NDK
+        run: |
+          echo "y" | sudo ${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager "ndk;26.1.10909125"
+          echo "ANDROID_NDK_HOME=${ANDROID_SDK_ROOT}/ndk/26.1.10909125" >> $GITHUB_ENV
+          echo "CC_aarch64_linux_android=${ANDROID_SDK_ROOT}/ndk/26.1.10909125/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android24-clang" >> $GITHUB_ENV
 
       - name: Build with cargo
         run: cargo build --target aarch64-linux-android --release
