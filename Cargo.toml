@@ -1,0 +1,8 @@
+[package]
+name = "dark_calc"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+meval = "0.2"
+slint = "1.9"
