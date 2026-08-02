@@ -6,3 +6,7 @@ edition = "2021"
 [dependencies]
 meval = "0.2"
 slint = "1.9"
+
+[package.metadata.android]
+package = "com.example.darkcalc"
+app_name = "Dark Calc"
